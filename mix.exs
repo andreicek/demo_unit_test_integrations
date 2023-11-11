@@ -7,7 +7,8 @@ defmodule App.MixProject do
       version: "0.1.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      elixirc_paths: elixirc_paths(Mix.env())
     ]
   end
 
@@ -23,7 +24,11 @@ defmodule App.MixProject do
   defp deps do
     [
       {:req, "~> 0.4.0"},
-      {:bypass, "~> 2.1.0", only: :test}
+      {:bypass, "~> 2.1.0", only: :test},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end
