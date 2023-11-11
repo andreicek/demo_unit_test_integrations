@@ -4,7 +4,16 @@ defmodule App.CurrencyTest do
   alias App.Currency
 
   describe "get_rates/0" do
-    test "returns a response with currency rates" do
+    setup do
+      bypass = Bypass.open()
+      {:ok, bypass: bypass}
+    end
+
+    test "returns a response with currency rates", %{bypass: bypass} do
+      Bypass.expect(bypass, fn conn ->
+        Plug.Conn.resp(conn, 200, "")
+      end)
+
       assert %Req.Response{status: 200} = Currency.get_rates()
     end
   end

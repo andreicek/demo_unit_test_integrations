@@ -22,7 +22,8 @@ defmodule App.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:req, "~> 0.4.0"}
+      {:req, "~> 0.4.0"},
+      {:bypass, "~> 2.1.0", only: :test}
     ]
   end
 end
