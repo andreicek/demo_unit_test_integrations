@@ -1,0 +1,12 @@
+{
+  "data": {
+    "buying": 1.0824,
+    "middle": 1.0808,
+    "selling": 1.0792
+  },
+  "meta": {
+    "date": "2023-11-11",
+    "currency": "USD",
+    "base_currency": "EUR"
+  }
+}
